@@ -19,7 +19,7 @@ function hit() {
     updateScores();
     
     // Show the new card in the game result (optional)
-    document.getElementById('game-result').innerHTML = `You got a ${card}. Your total score is: ${playerScore}`;
+    document.getElementById('game-result').innerHTML = `You got ${card}`;
     
     // Check if the player busted (score over 21)
     if (playerScore > 21) {
