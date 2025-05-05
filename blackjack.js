@@ -69,7 +69,7 @@ function startGame() {
     // Reset the game state before starting
     playerScore = getRandomCard();  // Give the player the first card
     updateScores();  // Update the score display
-    document.getElementById('game-result').textContent = `You got a ${playerScore}.`; // Show the first card
+    document.getElementById('game-result').textContent = `You got ${playerScore}.`; // Show the first card
 
     // Disable the Start Game button after starting the game
     document.getElementById('start-btn').style.display = 'none'; 
