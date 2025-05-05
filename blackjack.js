@@ -9,8 +9,7 @@ let computerScore = Math.floor(Math.random() * 11) + 1; // Random score for the 
 
 // Update the scores displayed on the webpage
 function updateScores() {
-    document.getElementById('player-score').textContent = playerScore;
-    document.getElementById('computer-score').textContent = computerScore;
+    document.getElementById('game').innerHTML = `Player Score: ${playerScore} <br> Computer Score: ${computerScore}`;
 }
 
 // Function to handle the player's "Hit"
@@ -19,7 +18,7 @@ function hit() {
     playerScore += card;  // Add the new card value to the player's score
     updateScores();
     
-    // Show the new card in the game text (optional)
+    // Show the new card in the game result (optional)
     document.getElementById('game-result').innerHTML = `You got a ${card}. Your total score is: ${playerScore}`;
     
     // Check if the player busted (score over 21)
@@ -60,17 +59,12 @@ function disableButtons() {
 
 // Show the Hit and Stand buttons once the Start Game button is clicked
 function startGame() {
-    document.getElementById('start-button').style.display = 'none'; // Hide the Start Game button
     document.getElementById('hit-button').style.display = 'inline';  // Show the Hit button
     document.getElementById('stand-button').style.display = 'inline';  // Show the Stand button
+    document.getElementById('game-result').innerHTML = ''; // Clear any previous result
 
     // Reset the game state before starting
     playerScore = getRandomCard();  // Give the player the first card
     updateScores();  // Update the score display
     document.getElementById('game-result').textContent = `You got a ${playerScore}.`; // Show the first card
 }
-
-// Add event listeners to buttons
-document.getElementById('start-button').addEventListener('click', startGame);
-document.getElementById('hit-button').addEventListener('click', hit);
-document.getElementById('stand-button').addEventListener('click', stand);
