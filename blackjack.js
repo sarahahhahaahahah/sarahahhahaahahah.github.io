@@ -53,18 +53,24 @@ function stand() {
 
 // Disable the Hit and Stand buttons after the game is over
 function disableButtons() {
-    document.getElementById('hit-button').disabled = true;
-    document.getElementById('stand-button').disabled = true;
+    document.getElementById('hit-btn').disabled = true;
+    document.getElementById('stand-btn').disabled = true;
 }
 
 // Show the Hit and Stand buttons once the Start Game button is clicked
 function startGame() {
-    document.getElementById('hit-button').style.display = 'inline';  // Show the Hit button
-    document.getElementById('stand-button').style.display = 'inline';  // Show the Stand button
-    document.getElementById('game-result').innerHTML = ''; // Clear any previous result
+    // Reset the game result text
+    document.getElementById('game-result').innerHTML = '';
+
+    // Show the Hit and Stand buttons
+    document.getElementById('hit-btn').style.display = 'inline';  // Show the Hit button
+    document.getElementById('stand-btn').style.display = 'inline';  // Show the Stand button
 
     // Reset the game state before starting
     playerScore = getRandomCard();  // Give the player the first card
     updateScores();  // Update the score display
     document.getElementById('game-result').textContent = `You got a ${playerScore}.`; // Show the first card
+
+    // Disable the Start Game button after starting the game
+    document.getElementById('start-btn').style.display = 'none'; 
 }
